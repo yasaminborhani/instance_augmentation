@@ -73,7 +73,7 @@ class DatasetGenerator:
         save_folder: str,
         control_methods: Optional[Union[List[str], str]] = None,
         control_weights: Optional[Union[List[float], float]] = None,
-        base_inpainting_model: str = "runwayml/stable-diffusion-inpainting",
+        base_inpainting_model: str = "benjamin-paine/stable-diffusion-v1-5-inpainting",
         generator: str = "inpaint_controlnet",
         target_image_size: int = 768,
         num_inference_steps: int = 40,
