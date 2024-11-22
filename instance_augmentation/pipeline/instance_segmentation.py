@@ -41,9 +41,9 @@ class SegmentationResult:
 
 class InstanceSegmentationPredictor:
     def __init__(self, class_names: Optional[List[str]] = None) -> None:
-        self.detection_model = load_model(get_relative_path("dino_config.py", __file__), get_relative_path("../models/groundingdino_swint_ogc.pth", __file__))
+        self.detection_model = load_model(get_relative_path("dino_config.py", __file__), get_relative_path("models/groundingdino_swint_ogc.pth", __file__))
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        sam = sam_model_registry[SAM_ENCODER_VERSION](checkpoint=get_relative_path("../models/sam_vit_h_4b8939.pth", __file__)).to(device=device)
+        sam = sam_model_registry[SAM_ENCODER_VERSION](checkpoint=get_relative_path("models/sam_vit_h_4b8939.pth", __file__)).to(device=device)
         self.sam_predictor = SamPredictor(sam)
         self.class_names = class_names if class_names is not None else COCO_CLASSES
 
